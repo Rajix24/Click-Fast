@@ -1,12 +1,7 @@
-// import elements
 import Nav from "./components/Nav.js";
-// App elements:
-const app = document.getElementById("app");
-app.appendChild(Nav());
 
-
-
-// change the url:
+const main = document.getElementById('main')
+main.prepend(Nav());
 
 
 
