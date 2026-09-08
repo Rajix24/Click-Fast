@@ -55,7 +55,6 @@ function registerEventListener(elementHTML) {
 }
 function navigate(path) {
     history.pushState({}, "", path);
-
     renderContent(path);
 }
 function renderContent(path) {
