@@ -53,9 +53,8 @@ function registerEventListener(elementHTML) {
         navigate(link.pathname);
     });
 }
-function navigate(path) {
+export function navigate(path) {
     history.pushState({}, "", path);
-
     renderContent(path);
 }
 function renderContent(path) {

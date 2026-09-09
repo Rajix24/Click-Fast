@@ -1,0 +1,135 @@
+*{
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.nav-bar{
+    display: flex;
+    width: 700px;
+    justify-content: center;
+    background-color: rgb(173, 173, 176);
+    gap: 50px;
+    margin: 10px;
+    border-radius:30px ;
+    padding: 20px;
+    a{
+        text-decoration: none ;
+        color: rgb(52, 52, 52);
+        font-size: 16px;
+        font-weight: 800;
+
+    }
+}
+.app{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    height: 90%;
+    width: 50%;
+    padding: 30px;
+    background-color: rgb(53, 53, 53);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    justify-content: space-evenly;
+    gap: 50px;
+}
+.home-conponent{
+    /* background: #000; */
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    button{
+        width: 200px;
+        height: 60px;
+        border-radius: 20px;
+        color: white;
+        border :none;
+        background: #717171;
+        cursor: pointer;
+    }
+
+}
+.board{
+    width: auto;
+    height: auto;
+    min-width: 400px;
+    min-height: 400px;
+    display: grid;
+    gap: 10px;
+    
+}
+.single-board{
+    width: 100%;
+    height: 100%;
+    background: #464646;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.startBtn{
+    width: 300px;
+    height: 60px;
+    margin-top: 30px;
+    border-radius: 20px;
+    border: none;
+    color: aliceblue;
+    background: #676767;
+    cursor: pointer;
+}
+.active-container{
+    display: flex;
+    gap: 150px
+}
+.bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    min-height: 500px;
+    min-width: 400px;
+    background: #000;
+    border-radius: 30px;
+}
+.timeComponents{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 40%;
+    background: rgba(255, 0, 0, 0.433);
+    border-radius: 20px;
+    p{
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+    }
+}
+.resultComponents{
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    background: rgba(255, 0, 0, 0.433);
+    width: 80%;
+    border-radius: 20px;
+    height: 40%;
+        p{
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+    }
+}
