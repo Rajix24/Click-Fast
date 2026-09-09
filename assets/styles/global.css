@@ -32,8 +32,6 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
 }
 .container{
     height: 90%;
@@ -68,8 +66,8 @@ main{
 .board{
     width: auto;
     height: auto;
-    min-width: 500px;
-    min-height: 500px;
+    min-width: 400px;
+    min-height: 400px;
     display: grid;
     gap: 10px;
     
@@ -80,5 +78,58 @@ main{
     background: #464646;
     border-radius: 10px;
     cursor: pointer;
-
+}
+.startBtn{
+    width: 300px;
+    height: 60px;
+    margin-top: 30px;
+    border-radius: 20px;
+    border: none;
+    color: aliceblue;
+    background: #676767;
+    cursor: pointer;
+}
+.active-container{
+    display: flex;
+    gap: 150px
+}
+.bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    min-height: 500px;
+    min-width: 400px;
+    background: #000;
+    border-radius: 30px;
+}
+.timeComponents{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 40%;
+    background: rgba(255, 0, 0, 0.433);
+    border-radius: 20px;
+    p{
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+    }
+}
+.resultComponents{
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    background: rgba(255, 0, 0, 0.433);
+    width: 80%;
+    border-radius: 20px;
+    height: 40%;
+        p{
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+    }
 }
