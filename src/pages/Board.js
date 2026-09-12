@@ -1,3 +1,4 @@
+let Boxes = [];
 export default function Board() {
 
 
@@ -9,9 +10,11 @@ export default function Board() {
         columns: 4,
         isRunning: false,
         timerInterval:null,
-        timer : 1
+
+        activeBox : null,
+        levelHardnes: 800
     }
-    let Boxs = [];
+
 
     if (gameState.boardCounter === 9) {
         gameState.rows = 3;
@@ -105,15 +108,15 @@ export default function Board() {
     for (let i = 0; i < gameState.boardCounter; i++) {
 
         const BoxComponent = Box();
-        Boxs.push(BoxComponent)
+        Boxes.push(BoxComponent)
         BoxComponent.addEventListener("click", () => {
-            console.log("hi");
+           if (BoxComponent == gameState.activeBox) {
+            console.log("click on the right components")// THAT IS WORKING
+            gameState.points += 100
+           }
         });
         BoardComponent.appendChild(BoxComponent)
     }
-
-    console.log(Boxs)
-
 
     return Container;
 }
@@ -132,23 +135,30 @@ function StartTimer(gameState, TimerPara, BtnStartGame) {
    
     gameState.isRunning = true;
     BtnStartGame.textContent = "Stop Game";
+
+
     gameState.timerInterval = setInterval(() => {
 
         gameState.timeLeft--;
         const minutes = Math.floor(gameState.timeLeft / 60);
         const seconds = gameState.timeLeft % 60;
         TimerPara.textContent =`${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+        console.log("debuge")
+        ChangeRandomBox(gameState, Boxes)
        
         if (gameState.timeLeft <= 0) {
+            stopColorBox(gameState, Boxes)
             clearInterval(gameState.timerInterval);
             gameState.timeLeft = 60
             gameState.timerInterval = null;
             gameState.isRunning = false;
             TimerPara.textContent = "01:00";
             BtnStartGame.textContent = "Replay";
+            
             return;
         }
-   
+        
+        
 
     }, 1000);
     return  
@@ -175,13 +185,26 @@ function StopTimer(gameState, TimerPara, BtnStartGame, ResultPara) {
 
 }
 
+// FUNCTION OF COLORING:
 
 
-function ChangeRandomBox(){
+function stopColorBox(gameState){
 
+    if (gameState.activeBox !== null) {
+        gameState.activeBox.style = "background: rgb(198, 197, 197);";
+        gameState.activeBox = null;
+        return
+    }
 }
-
-function stopColorBox(){
-
+// FUNCTION THAT CHANGE THE COLOR OF BOX PARAM (GAMESTATE BOX)  
+function ChangeRandomBox(gameState, boxes){
+    const randomIndex = Math.floor(
+        Math.random() * boxes.length
+    );
+    const randomBox = boxes[randomIndex];
+    gameState.activeBox = randomBox;
+    randomBox.style = "background: red;";
+    setTimeout(()=>{
+    if(gameState.activeBox !== null) gameState.activeBox.style = "background: rgb(198, 197, 197);";
+    }, gameState.levelHardnes)
 }
-
