@@ -133,3 +133,159 @@ main{
         font-size: 20px;
     }
 }
+
+/* =========================
+   CONFIG PAGE
+========================= */
+
+.config-container {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+    background: #f2f2f2;
+}
+
+
+/* =========================
+   CONFIG COMPONENT
+========================= */
+
+.config-component {
+    width: 600px;
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    padding: 30px;
+
+    background: white;
+    border-radius: 12px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+/* =========================
+   CONFIG SECTIONS
+========================= */
+
+.board-config,
+.game-config {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    background: #fafafa;
+}
+
+
+.board-config h2,
+.game-config h2 {
+    margin: 0 0 10px;
+
+    font-size: 20px;
+    color: #333;
+}
+
+
+/* =========================
+   INPUT GROUP
+========================= */
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.input-group label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #444;
+}
+
+
+.input-group input {
+    width: 120px;
+
+    padding: 10px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+.input-group input:focus {
+    border-color: #555;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.config-actions {
+    width: 600px;
+    max-width: 100%;
+
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+/* =========================
+   START BUTTON
+========================= */
+
+#btn-start-game {
+    width: 200px;
+
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #333;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+#btn-start-game:hover {
+    background: #555;
+}
+
+
+#btn-start-game:active {
+    transform: scale(0.97);
+}
+
