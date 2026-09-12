@@ -1,4 +1,4 @@
-import { getDataLocalStorage } from "../";
+import { getDataLocalStorage } from "../services/localStorage.js";
 
 export default function Config(){
 
@@ -90,6 +90,9 @@ export default function Config(){
         FormGame.addEventListener("submit", (e) => {
             e.preventDefault();
             gameState.boardCounter = Number(BoardSize.value);
+            if(Hardness.value == "easy") gameState.levelHardnes = 300
+            if(Hardness.value == "hard") gameState.levelHardnes = 500
+            if(Hardness.value == "extra-hard") gameState.levelHardnes = 300
             console.log(gameState);
         });
 
