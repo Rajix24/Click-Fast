@@ -78,7 +78,7 @@ main{
         border-radius: 10px;
         width: auto;
         height: auto;
-        background: rgb(163, 163, 163);
+        background: rgb(198, 197, 197);
     }
 }
 
@@ -120,4 +120,7 @@ main{
 .result-para{
      font-size: 22px;
     font-weight: 700;
+}
+.different-color{
+    background: red;
 }
