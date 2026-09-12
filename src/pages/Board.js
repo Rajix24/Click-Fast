@@ -1,6 +1,6 @@
 import { getDataLocalStorage, SaveDataLocalStorage } from "../services/localStorage.js";
 let Boxes = [];
-let histories = []
+let histories = getDataLocalStorage("hitories") || []
 export default function Board() {
     const savedGameState = getDataLocalStorage("config");
     let gameState;
@@ -213,7 +213,7 @@ function ChangeRandomBox(gameState, boxes){
     );
     const randomBox = boxes[randomIndex];
     gameState.activeBox = randomBox;
-    randomBox.style = "background: red;";
+    randomBox.style = "background: blue;";
     setTimeout(()=>{
     if(gameState.activeBox !== null) gameState.activeBox.style = "background: rgb(198, 197, 197);";
     }, gameState.levelHardnes)
