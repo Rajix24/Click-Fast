@@ -1,4 +1,4 @@
-import { getDataLocalStorage } from "../services/localStorage.js";
+import { getDataLocalStorage, SaveDataLocalStorage } from "../services/localStorage.js";
 
 export default function Config(){
 
@@ -83,7 +83,7 @@ export default function Config(){
         const SubmitButton = document.createElement("button");
 
         SubmitButton.type = "submit";
-        SubmitButton.textContent = "Start Game";
+        SubmitButton.textContent = "Confirm";
 
         FormGame.appendChild(SubmitButton);
 
@@ -93,58 +93,8 @@ export default function Config(){
             if(Hardness.value == "easy") gameState.levelHardnes = 300
             if(Hardness.value == "hard") gameState.levelHardnes = 500
             if(Hardness.value == "extra-hard") gameState.levelHardnes = 300
-            console.log(gameState);
+            // console.log(gameState);
+            SaveDataLocalStorage("config", gameState)
         });
-
-
-
-
-        // RowsInput.type = "number";
-        // RowsInput.value = gameState.rows;
-
-        // const ColumnsInput = document.createElement("input");
-        // ColumnsInput.type = "number";
-        // // ColumnsInput.value = gameState.columns;
-
-
-        // RowsContainer.appendChild(RowsLabel);
-        // RowsContainer.appendChild(RowsInput);
-
-        // ColumnsContainer.appendChild(ColumnsLabel);
-        // ColumnsContainer.appendChild(ColumnsInput);
-
-        // BoardComponent.appendChild(BoardTitle);
-        // BoardComponent.appendChild(RowsContainer);
-        // BoardComponent.appendChild(ColumnsContainer);
-
-
-        // // ==========================
-        // // RESULT CONFIGURATION
-        // // ==========================
-
-        // const ResultTitle = document.createElement("h2");
-        // ResultTitle.textContent = "Game Configuration";
-
-        // const TimeBoard = document.createElement("div");
-        // const ResultBoard = document.createElement("div");
-
-        // // TimeBoard.textContent = `Time: ${gameState.timeLeft}s`;
-        // // ResultBoard.textContent = `Points: ${gameState.points}`;
-
-        // ResultComponent.appendChild(ResultTitle);
-        // ResultComponent.appendChild(TimeBoard);
-        // ResultComponent.appendChild(ResultBoard);
-
-
-        // // ==========================
-        // // BUTTON
-        // // ==========================
-
-        // const BtnStartGame = document.createElement("button");
-
-        // BtnStartGame.textContent = "Start Game";
-
-        // StartButton.appendChild(BtnStartGame);
-
     return Container
 }
