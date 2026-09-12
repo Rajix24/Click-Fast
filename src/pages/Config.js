@@ -94,7 +94,6 @@ export default function Config(){
             if(Hardness.value == "easy") gameState.levelHardnes = 300
             if(Hardness.value == "hard") gameState.levelHardnes = 500
             if(Hardness.value == "extra-hard") gameState.levelHardnes = 300
-            // console.log(gameState);
             SaveDataLocalStorage("config", gameState)
         });
 

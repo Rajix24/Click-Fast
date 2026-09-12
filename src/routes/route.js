@@ -72,8 +72,6 @@ window.addEventListener("popstate", () => {
     renderContent(window.location.pathname);
 });
 window.addEventListener('load',  () =>{
-    console.log('load page in happening')
-    console.log(window.location.pathname)
     renderContent(window.location.pathname);
 })
 renderContent(window.location.pathname);

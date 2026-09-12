@@ -118,7 +118,6 @@ export default function Board() {
         Boxes.push(BoxComponent)
         BoxComponent.addEventListener("click", () => {
            if (BoxComponent == gameState.activeBox) {
-            console.log("click on the right components")// THAT IS WORKING
             gameState.points += 100
             ResultPara.textContent =`Score: ${gameState.points}P` ;
            }
@@ -151,7 +150,6 @@ function StartTimer(gameState, TimerPara, BtnStartGame) {
         const minutes = Math.floor(gameState.timeLeft / 60);
         const seconds = gameState.timeLeft % 60;
         TimerPara.textContent =`${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-        console.log("debuge")
         ChangeRandomBox(gameState, Boxes)
        
         if (gameState.timeLeft <= 0) {
