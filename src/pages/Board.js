@@ -1,5 +1,6 @@
 import { getDataLocalStorage, SaveDataLocalStorage } from "../services/localStorage.js";
 let Boxes = [];
+let histories = []
 export default function Board() {
     const savedGameState = getDataLocalStorage("config");
     let gameState;
@@ -68,6 +69,8 @@ export default function Board() {
         }
         // STOP GAME
         if(gameState.isRunning == true) {
+            histories.push(gameState)
+            SaveDataLocalStorage("hitories", histories)
             StopTimer(gameState,TimerPara,BtnStartGame, ResultPara);
             return
         }
@@ -154,12 +157,14 @@ function StartTimer(gameState, TimerPara, BtnStartGame) {
         if (gameState.timeLeft <= 0) {
             stopColorBox(gameState, Boxes)
             clearInterval(gameState.timerInterval);
+            histories.push(gameState)
+            SaveDataLocalStorage("hitories", histories)
+
             gameState.timeLeft = 60
             gameState.timerInterval = null;
             gameState.isRunning = false;
             TimerPara.textContent = "01:00";
             BtnStartGame.textContent = "Replay";
-            
             return;
         }
         
