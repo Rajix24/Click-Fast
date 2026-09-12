@@ -14,6 +14,7 @@ export default function Board() {
         activeBox : null,
         levelHardnes: 800
     }
+    let game =SaveDataLocalStorage()
 
 
     if (gameState.boardCounter === 9) {
@@ -113,6 +114,7 @@ export default function Board() {
            if (BoxComponent == gameState.activeBox) {
             console.log("click on the right components")// THAT IS WORKING
             gameState.points += 100
+            ResultPara.textContent =`Score: ${gameState.points}P` ;
            }
         });
         BoardComponent.appendChild(BoxComponent)
@@ -177,7 +179,7 @@ function StopTimer(gameState, TimerPara, BtnStartGame, ResultPara) {
         gameState.points = 0;
         
     // Reset UI
-        ResultPara.textContent = "Result: 0 P";
+        ResultPara.textContent = "Score: 0 P";
         BtnStartGame.textContent = "Start Game";
         return
     }
