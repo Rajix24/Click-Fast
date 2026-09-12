@@ -1,21 +1,24 @@
+import { getDataLocalStorage, SaveDataLocalStorage } from "../services/localStorage.js";
 let Boxes = [];
 export default function Board() {
-
-
-    let gameState = {
-        timeLeft : 60,
-        boardCounter: 9,
-        points: 0,
-        rows: 3,
-        columns: 4,
-        isRunning: false,
-        timerInterval:null,
-
-        activeBox : null,
-        levelHardnes: 800
+    const savedGameState = getDataLocalStorage("config");
+    let gameState;
+    if (savedGameState) {
+        gameState = savedGameState;
+    } else {
+        gameState = {
+            timeLeft: 60,
+            boardCounter: 9,
+            points: 0,
+            rows: 3,
+            columns: 4,
+            isRunning: false,
+            timerInterval: null,
+            activeBox: null,
+            levelHardnes: 800
+        };
+        SaveDataLocalStorage("config", gameState);
     }
-    let game =SaveDataLocalStorage()
-
 
     if (gameState.boardCounter === 9) {
         gameState.rows = 3;

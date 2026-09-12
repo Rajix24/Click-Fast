@@ -3,8 +3,6 @@ export function SaveDataLocalStorage(key, valuer){
         localStorage.setItem(key, JSON.stringify(valuer))
     } catch (error) {
         console.error("could not save data", error )
-    }finally{
-        console.log("block has been excuted")
     }
 }
 export function getDataLocalStorage(key){
@@ -12,13 +10,5 @@ export function getDataLocalStorage(key){
     if (data == null) {
         return null
     }
-    return data;    
+    return JSON.parse(data);
 }
-
-/*
-    config = {
-        time = string,
-        stageDeff = number,
-        
-    }
-*/
