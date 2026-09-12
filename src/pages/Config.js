@@ -3,6 +3,7 @@ import { getDataLocalStorage, SaveDataLocalStorage } from "../services/localStor
 export default function Config(){
 
     let gameState = getDataLocalStorage("config")
+    let histories = getDataLocalStorage("hitories") || []
 
         const Container = document.createElement("div");
         const GameConfig = document.createElement("div");
@@ -96,5 +97,54 @@ export default function Config(){
             // console.log(gameState);
             SaveDataLocalStorage("config", gameState)
         });
+
+
+        // HANDAL SHOWING THE HISTORIES
+
+        histories.forEach((game, index) => {
+            const HistoryDiv = document.createElement("div");
+            HistoryDiv.classList.add("history-item");
+
+            const GameNumber = document.createElement("h3");
+
+            GameNumber.className = "GameNumber"
+            GameNumber.textContent = `Game ${index + 1}`;
+
+            const Status = document.createElement("p");
+            Status.className = "statusHistory"
+
+            Status.textContent = `Running: ${game.isRunning}`;
+
+            const Hardness = document.createElement("p");
+            Hardness.className = "hardness-history"
+
+            if(game.levelHardnes == 800){
+                Hardness.textContent = `Difficulty: Easy`;
+            }
+            if(game.levelHardnes == 500){
+                Hardness.textContent = `Difficulty: hard`;
+            }
+            if(game.levelHardnes == 300){
+                Hardness.textContent = `Difficulty: Extra Hard`;
+            }
+
+            const Points = document.createElement("p");
+            Points.textContent = `Points: ${game.points}`;
+            Points.className = "piont-history"
+
+            const Time = document.createElement("p");
+            Time.textContent = `Time Left: ${game.timeLeft}s`;
+            Time.className = "time-history"
+
+            HistoryDiv.appendChild(GameNumber);
+            HistoryDiv.appendChild(Status);
+            HistoryDiv.appendChild(Hardness);
+            HistoryDiv.appendChild(Points);
+            HistoryDiv.appendChild(Time);
+
+            ResultConfig.appendChild(HistoryDiv);
+        });
+
+
     return Container
 }
